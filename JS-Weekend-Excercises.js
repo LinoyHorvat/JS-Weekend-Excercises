@@ -59,3 +59,29 @@ function findUniq(arr){
   arr.forEach((num) => (dic[num] = dic[num] ? ++dic[num] : 1));
   return Object.values(dic)[0] > Object.values(dic)[1] ? Object.keys(dic)[1] : Object.keys(dic)[0];
 }
+
+// Ex2.5 - Summation
+// Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+
+function summation(num){
+  let sum = 0 ; 
+  for (let i = 1 ; i <= num ; i++ ){
+    sum += i ;
+  }
+  return sum ; 
+}
+
+
+// Ex2.6 - Years and Centuries
+// The first century spans from the year 1 up to and including the year 100, The second - from the year 101 up to and including the year 200, etc.
+// Given a year, return the century it is in.
+
+function yearToCentury (year){
+  return Math.ceil(2000/100); 
+}
+
+
+// Ex2.7 - Basic Math
+// Your task is to create a function that does four basic .
+// The function should take three arguments - operation(string/char), value1(number), value2(number).
+// The function should return result of numbers after applying the chosen operation. 
