@@ -80,8 +80,43 @@ function yearToCentury (year){
   return Math.ceil(2000/100); 
 }
 
-
 // Ex2.7 - Basic Math
 // Your task is to create a function that does four basic .
 // The function should take three arguments - operation(string/char), value1(number), value2(number).
 // The function should return result of numbers after applying the chosen operation. 
+
+function basicOp(operation, num1, num2){
+  let res = num1 ;
+  switch(operation){
+    case '+':
+    res += num2 ; 
+    break ; 
+    case '-':
+    res -= num2 ; 
+    break ; 
+    case '*':
+    res *= num2 ; 
+    break ; 
+    case '/':
+    res /= num2 ; 
+    break ; 
+  }
+  return res;
+}
+
+// Ex3.1 - Growth Of population
+// In a small town the population is p0 = 1000 at the beginning of a year. The population regularly increases by 2 percent per year and moreover 50 new inhabitants per year come to live in the town. How many years does the town need to see its population greater or equal to p = 1200 inhabitants?
+
+
+function nb_year(p0, incPercent, newInhabitants, p){
+  let years = 0 ; 
+  while (p0 < p){
+    p0 = p0 + (p0 * (incPercent/100)) + newInhabitants ;  
+    years +=1 ;
+  }
+  return years; 
+}
+
+console.log(nb_year(1000, 2, 50, 1200));
+
+// Ex3.2 - People on the Bus
