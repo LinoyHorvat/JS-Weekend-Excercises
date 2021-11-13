@@ -136,3 +136,46 @@ function peopleOnTheBus(arr){
   }
   return (people >= 0 ? people : 'Error');
 }
+
+// Ex4.1 - Fibonacci
+
+function fibonacci(n){
+  let sum = 0 ; 
+  const res = [0,1] ;
+  for (let i=1 ; i < n ; i ++){
+    sum = res[i] + res[i-1]; 
+    res[i+1] = sum ; 
+  }
+  return res; 
+}
+
+// Ex4.2 - Tribonacci  works basically like a Fibonacci, but summing the last 3 (instead of 2) numbers of the sequence to generate the next.
+
+function tribonacci(n){
+  let sum = 0 ; 
+  const res = [0,1] ;
+  for (let i=1 ; i < n ; i ++){
+    sum = res[i] + res[i-1]; 
+    res[i+1] = sum ; 
+  }
+  return res; 
+}
+
+// Ex5.1 - trimming string
+// It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry with strings with less than two characters.
+
+
+function removeFirstLast (str){
+  return str.slice(1,-1);
+}
+
+
+// Ex5.2 - String Repeat
+// Write a function called repeat_str which repeats the given string src exactly count times. 
+
+function repeatStr(num, str){
+  return str.repeat(num);  
+}
+
+// Ex5.3 - To Camel Case
+// Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
