@@ -181,9 +181,34 @@ function repeatStr(num, str){
 // Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
 
 function toCamelCase (str){
-  return str.slice(0,1) +str.slice(1).toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+  return str.slice(0,1) + str.slice(1).toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
 }
 
 // Ex5.4 - To Weird Case
 // Write a function toWeirdCase (weirdcase in Ruby) that accepts a string, and returns the same string with all even indexed characters in each word upper cased, and all odd indexed characters in each word lower cased. The indexing just explained is zero based, so the zero-ith index is even, therefore that character should be upper cased.
 // The passed in string will only consist of alphabetical characters and spaces(' '). Spaces will only be present if there are multiple words. Words will be separated by a single space(' ').
+
+function toWeirdCase(str){
+  let str2 = '' ; 
+  let j = 0 ; 
+  for (let i = 0 ; i < str.length ; i++){
+    if (str[i] == ' ') {
+      str2 += str[i] ; 
+      j = 0 ;
+    }
+    else if (j % 2 == 0){
+      str2 += str[i].toUpperCase();
+      j++ ;
+    }
+    else {
+      str2 += str[i].toLowerCase();
+      j++ ;
+    }
+  }
+  return str2; 
+}
+
+// Ex5.5 - Abbreviate two words
+// Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+// The output should be two capital letters with a dot separating them.
+
