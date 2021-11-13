@@ -71,7 +71,6 @@ function summation(num){
   return sum ; 
 }
 
-
 // Ex2.6 - Years and Centuries
 // The first century spans from the year 1 up to and including the year 100, The second - from the year 101 up to and including the year 200, etc.
 // Given a year, return the century it is in.
@@ -164,11 +163,9 @@ function tribonacci(n){
 // Ex5.1 - trimming string
 // It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry with strings with less than two characters.
 
-
 function removeFirstLast (str){
   return str.slice(1,-1);
 }
-
 
 // Ex5.2 - String Repeat
 // Write a function called repeat_str which repeats the given string src exactly count times. 
@@ -212,3 +209,75 @@ function toWeirdCase(str){
 // Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
 // The output should be two capital letters with a dot separating them.
 
+function nameToInitials (name){
+  let initials = name.slice(0, 1).toUpperCase() + '.' 
+  let index = name.indexOf(' '); 
+  initials += name.slice(index + 1 , index + 2).toUpperCase()
+  return initials; 
+}
+
+
+// Ex5.6 - Mask
+// Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+// Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+function maskify (str) {
+  if (str.length <= 4){
+    return str ; 
+  }
+  else {
+    let i = 0 ; 
+    let str2 = '' ;
+    while (i < str.length - 4){
+      str2 += '#'
+      i++;
+    }
+    return str2 + str.slice(i);
+  }
+}
+
+// Ex5.7 - shortest words
+// Simple, given a string of words, return the ​length​ of the shortest word(s).
+// String will never be empty and you do not need to account for different data types.
+
+function shortestWords (words){
+  let len = Infinity ;
+  let count = 0;  
+  let l =  words.length; 
+  // debugger;
+  for (let index = 0 ; index < words.length ; index ++ ){
+    if (words[index] == ' ' || index === words.length -1 ){
+      if (count < len) len = count ;
+      count = 0 ; 
+    }
+    else {
+      count ++ ;
+    }
+  }
+  return len ;
+}
+
+console.log(shortestWords("123 12"))
+
+// Ex5.8 - shortest words version 2
+// Given a string of words, return the longest word[s].
+// String will never be empty and you do not need to account for different data types.
+
+function longestWords (words){
+  let len = 0 ;
+  let count = 0;  
+  let l =  words.length; 
+  // debugger;
+  for (let index = 0 ; index < words.length ; index ++ ){
+    if (words[index] == ' ' || index === words.length -1 ){
+      if (count > len) len = count ;
+      count = 0 ; 
+    }
+    else {
+      count ++ ;
+    }
+  }
+  return len ;
+}
+
+console.log(longestWords("123 12"))
